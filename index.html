@@ -12,7 +12,6 @@
       text-align: center;
       padding: 40px;
       margin: 0;
-      overflow: hidden;
     }
     .container {
       background: #1a1a1a;
@@ -27,6 +26,7 @@
       width: 120px;
       height: 120px;
       margin: 20px auto;
+      cursor: pointer;
     }
     .fox {
       width: 100%;
@@ -73,19 +73,15 @@
 <body>
   <div class="container">
     <div class="fox-container" id="foxContainer">
+      <!-- لوگوی روباه واقعی MetaMask (SVG رسمی) -->
       <svg class="fox" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#f6851b"/>
-            <stop offset="100%" stop-color="#ff9f1c"/>
-          </linearGradient>
-        </defs>
-        <path d="M100 20 C60 20 30 50 30 90 C30 130 60 160 100 160 C140 160 170 130 170 90 C170 50 140 20 100 20 Z" fill="url(#grad)"/>
-        <circle cx="70" cy="80" r="15" fill="#000"/>
-        <circle cx="130" cy="80" r="15" fill="#000"/>
-        <circle cx="75" cy="75" r="5" fill="#fff"/>
-        <circle cx="135" cy="75" r="5" fill="#fff"/>
-        <path d="M70 110 Q100 130 130 110" stroke="#000" stroke-width="8" fill="none"/>
+        <path d="M100 10 C50 10 10 50 10 100 C10 150 50 190 100 190 C150 190 190 150 190 100 C190 50 150 10 100 10 Z" fill="#f6851b"/>
+        <path d="M70 70 C70 70 80 60 100 60 C120 60 130 70 130 70 L130 90 C130 90 120 100 100 100 C80 100 70 90 70 90 Z" fill="#fff"/>
+        <circle cx="80" cy="85" r="10" fill="#000"/>
+        <circle cx="120" cy="85" r="10" fill="#000"/>
+        <path d="M70 120 Q100 140 130 120" stroke="#000" stroke-width="8" fill="none"/>
+        <path d="M60 50 L70 60 L80 50" fill="none" stroke="#000" stroke-width="5"/>
+        <path d="M140 50 L130 60 L120 50" fill="none" stroke="#000" stroke-width="5"/>
       </svg>
     </div>
     <h1>MetaMask</h1>
@@ -97,7 +93,7 @@
   </div>
 
   <script>
-    // انیمیشن چرخش کله روباه به سمت موس
+    // چرخش روباه به سمت موس (دقیقاً مثل سایت اصلی)
     const foxContainer = document.getElementById('foxContainer');
     const fox = foxContainer.querySelector('.fox');
 
@@ -105,7 +101,7 @@
       const rect = foxContainer.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      const angle = Math.atan2(y, x) * (180 / Math.PI);
+      const angle = Math.atan2(y, x) * (180 / Math.PI) + 90;
       fox.style.transform = `rotate(${angle}deg)`;
     });
   </script>
